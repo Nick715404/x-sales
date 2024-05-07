@@ -18,7 +18,8 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.4",
     "sass": "^1.70.0",
-    "swiper": "^11.0.7"
+    "swiper": "^11.0.7",
+    "vercel": "^34.1.8"
   },
   "devDependencies": {
     "@types/node": "^20",
