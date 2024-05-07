@@ -1,6 +1,6 @@
 export const getAllReviews = async () => {
   try {
-    const responce = await fetch(`https://буккросинг.рф:3200/api/api/reviews/all`, {
+    const responce = await fetch(`${process.env.SERVER_URL}/api/reviews/all`, {
       next: { revalidate: 60 }
     });
     const data = await responce.json();
