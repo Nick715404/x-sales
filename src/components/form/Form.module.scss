@@ -1,0 +1,257 @@
+.form {
+  position: relative;
+  max-width: 660px;
+  width: 100%;
+  color: #D4D4D4;
+  z-index: 2;
+
+  @media (max-width: 1024px) {
+    width: 48%;
+  }
+
+  @media (max-width: 786px) {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .title {
+    color: #fff;
+    font-size: clamp(25px, 2.4vw, 40px);
+    margin-bottom: 20px;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 10px;
+    }
+
+  }
+
+  .text {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Manrope', sans-serif;
+    color: #fff;
+    margin-bottom: 22px;
+
+    @media (max-width: 1024px) {
+      br {
+        display: none;
+      }
+
+      margin-bottom: 30px;
+    }
+
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .inputBox {
+      position: relative;
+      width: 50%;
+
+      @media (max-width: 1024px) {
+        width: 100%;
+      }
+
+    }
+
+  }
+
+  .inputBox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input,
+  textarea {
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid #ffffff83;
+    background-color: transparent;
+    outline: none;
+    color: #fff;
+    transition: all .3s ease-in-out;
+
+    &:active,
+    &:focus {
+      border-color: #fff;
+    }
+
+    &[type="checkbox"] {
+      height: unset;
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 30px #00000000 inset !important;
+      -webkit-text-fill-color: #fff;
+    }
+
+  }
+
+  textarea {
+    min-height: 128px;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 24px;
+
+    &:active {
+      background-color: #ffffffbf !important;
+    }
+
+    @media (max-width: 1024px) {
+      margin-bottom: 15px;
+      min-height: 110px;
+    }
+
+    &::placeholder {
+      color: #D4D4D4;
+      font-family: 'Manrope', sans-serif;
+      opacity: 0.4;
+      font-weight: 300;
+    }
+
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  input {
+
+    padding: 15px 12px;
+
+    &::placeholder {
+      color: #D4D4D4;
+      font-family: 'Manrope', sans-serif;
+      opacity: 0.4;
+      font-weight: 300;
+    }
+  }
+
+  .checkBox {
+    margin-bottom: 24px;
+    color: #D4D4D4;
+    display: flex;
+    gap: 12px;
+
+    @media (max-width: 1024px) {
+      margin-bottom: 30px;
+    }
+
+    label {
+      margin: 0;
+    }
+
+    input[type="checkbox"]:not(:checked),
+    input[type="checkbox"]:checked {
+
+      display: none;
+
+      &~label {
+        position: relative;
+        margin-left: 25px;
+        transition: all .3s ease-in;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -25px;
+          width: 18px;
+          height: 18px;
+          border-radius: 2px;
+          border: 1px solid #ffffff7e;
+          transition: all .3s ease-in;
+          cursor: pointer;
+        }
+
+      }
+    }
+
+    input[type="checkbox"]:checked {
+
+      &~label {
+        color: #fff;
+
+        &::after {
+          background-color: #fff;
+          border-color: #fff;
+        }
+
+      }
+    }
+
+  }
+
+  .btn {
+    width: 100%;
+    background-color: #1E1E1E;
+    color: #fff;
+    border-radius: 50px;
+    margin: 0;
+    outline: none;
+    border: none;
+    height: 53px;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: 'Grandis-Extended', sans-serif;
+    cursor: pointer;
+    transition: all .3s ease-in;
+
+    &:hover {
+      background-color: #fff;
+      color: #1E1E1E;
+    }
+
+  }
+
+  button[data-color="white"] {
+    background-color: #fff;
+    color: #010101;
+
+    &:hover {
+      background-color: #312DFF;
+      color: #fff;
+    }
+
+  }
+
+}
+
+.checkBox {
+  position: relative;
+
+  .error {
+    top: 0;
+    left: 120px;
+  }
+
+}
+
+.error {
+  position: absolute;
+  bottom: -25px;
+  color: rgb(255, 171, 171);
+}
+
+.success {
+  color: #fff;
+
+  .successTitle {
+    line-height: 1.1 !important;
+    font-size: clamp(24px, 4vw, 60px) !important;
+  }
+
+}

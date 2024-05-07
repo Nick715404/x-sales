@@ -1,0 +1,27 @@
+.review {
+  border: 1px solid #00000020;
+  border-radius: 20px;
+  padding: 28px 32px;
+  max-width: 400px;
+  min-height: 212px;
+
+  @media (max-width: 786px) {
+    max-width: unset;
+  }
+
+  .rating {
+    margin-bottom: 15px;
+  }
+
+  .name {
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .text {
+    color: #000000;
+    opacity: 0.6;
+  }
+
+}

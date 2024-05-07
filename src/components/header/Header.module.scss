@@ -1,0 +1,29 @@
+.header {
+  // padding-top: 20px;
+  // background-color: #ECECEB;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .content_box {
+      display: flex;
+      align-items: center;
+      gap: 90px;
+
+      @media (max-width: 1024px) {
+        gap: 45px;
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}

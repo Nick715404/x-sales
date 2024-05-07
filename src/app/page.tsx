@@ -1,95 +1,97 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import styles from './page.module.scss';
 
-export default function Home() {
+import Link from 'next/link';
+import Image from 'next/image';
+import { Metadata } from 'next';
+import { getAllPosts } from '@/api/posts/posts';
+
+import aboutImg from '/public/png/about.png';
+import Button from '@/components/button/Button';
+import Banner from '@/components/banner/Banner';
+import Catalog from '@/components/catalog/Catalog';
+import LastPost from '@/components/last-post/LastPost';
+import Posts from '@/components/posts/Posts';
+
+export const metadata: Metadata = {
+  title: "30XSales || Главная",
+};
+
+export default async function Home() {
+
+  const posts = await getAllPosts();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className='home'>
+
+      <section id='hero' className={styles.hero}>
+        <div className="container">
+          <div className={styles.hero__wrapper}>
+            <div className={styles.hero__content}>
+              <h1 className={styles.hero__title}>Уверенность <br /> и смелость <br /> - это в вашем стиле </h1>
+              <p className={styles.hero__text}>Одежда, которая никогда не подведет и вы будете чувствовать <br /> себя в ней уверенно и комфортно</p>
+            </div>
+            <div className={styles.heroBtnBox}>
+              <Button
+                style='default'
+                text='В каталог'
+                href='/catalog' />
+            </div>
+          </div>
         </div>
+      </section>
+
+      <div className={styles.white_box}>
+
+        <section id='home-about' className={styles.about}>
+          <div className="container-small">
+            <div className={styles.about__wrapper}>
+              <div className={styles.about__text_box}>
+                <h2 className={styles.about__title}>Мы — команда 30XSales</h2>
+                <p className={styles.about__text}>До выхода на wb собстенник работал  в партнёрстве, совместно реализовывали одежду для фитнеса, был создан бренд "smithfit".  После было принято решение выходить самостоятельно  уже на Wildberries, расширять ассортимент стоковых позиций</p>
+                <div className={styles.about__btn_box}>
+                  <Button style='default' text='Подробнее о нас' href='/about' />
+                </div>
+              </div>
+              <div className={styles.about__img_box}>
+                <Image
+                  className={styles.about__img}
+                  src={aboutImg}
+                  alt='О компании 30XSales'
+                  priority />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id='home-banner'>
+          <Banner />
+        </section>
+
+        <section id='home-catalog' className={styles.catalog}>
+          <div className="container">
+            <Catalog sortMode />
+            <Link className={styles.linkCatalog} href={'/catalog'}>в каталог</Link>
+          </div>
+        </section>
+
+        <div className={styles.black_box}>
+
+          <section id='home-last-post' className={styles.lastPost}>
+            <div className="container">
+              <LastPost data={posts} />
+            </div>
+          </section>
+
+          <section id='home-blog' className={styles.blog}>
+            <div className="container">
+              <Posts title='Блог' filtered data={posts} />
+            </div>
+          </section>
+
+        </div>
+
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </div>
+  );
 }

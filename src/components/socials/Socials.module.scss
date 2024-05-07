@@ -1,0 +1,35 @@
+@import '../../styles/vars.scss';
+
+.socials,
+.filtered {
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+
+  .list {
+    display: flex;
+    align-content: center;
+    gap: 10px;
+  }
+
+  .link {
+    height: 100%;
+    display: block;
+  }
+
+  .img {
+    transition: all .4s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.filter {
+  .img {
+    filter: invert(100%) !important;
+  }
+
+}

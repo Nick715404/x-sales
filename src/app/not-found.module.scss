@@ -1,0 +1,64 @@
+.page {
+  position: relative;
+  background-color: #312DFF;
+  color: #fff;
+  height: 98dvh;
+  margin-bottom: 58px;
+  border-radius: 0 0 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .pageWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 105%;
+    background-image: url('/svg/404-bg.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+
+    @media (max-width: 1024px) {
+      top: 100px;
+      transform: rotate(115deg);
+      height: 135%;
+      width: 100%;
+    }
+
+  }
+
+  .title {
+    font-size: clamp(80px, 10vw, 150px);
+    margin-bottom: 37px;
+  }
+
+  .subtitle {
+    font-size: clamp(25px, 3vw, 30px);
+    margin-bottom: 20px;
+    text-transform: unset;
+    text-align: center;
+  }
+
+  .text {
+    font-size: 14px;
+    margin-bottom: 50px;
+  }
+
+  .btnBox {
+    width: 210px;
+  }
+
+}

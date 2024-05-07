@@ -1,0 +1,24 @@
+.btn {
+  background: linear-gradient(#B009FF, #8309CD);
+  color: #fff;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 44px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  .img {
+    transition: all .3s ease-in-out;
+  }
+
+  &:hover {
+
+    .img {
+      transform: translateX(5px);
+    }
+
+  }
+
+}
