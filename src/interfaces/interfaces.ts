@@ -57,6 +57,7 @@ export interface ITabs {
 
 export interface MobileNavProps {
   openMenu: boolean
+  setOpenMenu: any;
 }
 
 export interface ISingleProduct {

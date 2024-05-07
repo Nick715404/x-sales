@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
 import styles from './BurgerMenu.module.scss';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { navLinks } from '@/constans/constants';
 import { usePathname } from 'next/navigation';
 import { ISocialsImages } from '@/interfaces/interfaces';
@@ -12,22 +12,17 @@ import Image from 'next/image';
 import Facebook from '/public/svg/facebook-black.svg';
 import Instagramm from '/public/svg/inst.svg';
 import Youtube from '/public/svg/youtube.svg';
-import Logo from '../logo/Logo';
+import Logo from '../../components/logo/Logo';
+import { useRouter } from 'next/router';
 
 export default function BurgerMenu() {
+  const [openMenu, setOpenMenu] = useState<boolean>(false);
+  const pathName = usePathname();
   const images: ISocialsImages = {
     facebook: Facebook,
     inst: Instagramm,
     youtube: Youtube
   }
-
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const pathName = usePathname();
-
-  const className = {
-    active: 'active',
-    default: ''
-  };
 
   const handleStyleChange = () => {
     if (pathName != '/' && pathName != '/contacts' && pathName != '/post') {
@@ -61,16 +56,18 @@ export default function BurgerMenu() {
           <Logo mode />
         </div>
         <ul className={styles.list}>
-          {navLinks.map(link => {
-            const isActive = pathName === link.href;
-            return (
-              <li key={link.href} className={styles.item}>
-                <Link className={isActive ? styles.active : styles.link} href={link.href}>
-                  {link.label}
-                </Link>
-              </li>
-            )
-          })}
+          {
+            navLinks.map(link => {
+              const isActive = pathName === link.href;
+              return (
+                <li key={link.href} className={styles.item}>
+                  <Link onClick={() => setOpenMenu(false)} className={isActive ? styles.active : styles.link} href={link.href}>
+                    {link.label}
+                  </Link>
+                </li>
+              )
+            })
+          }
         </ul>
         <div className={styles.content}>
           <span className={styles.title}>Мы в соц. сетях</span>

@@ -14,7 +14,7 @@ export const getAllProducts = async () => {
 
 export const getSingleProduct = async (id: string) => {
   try {
-    const response = await fetch(`$https://буккросинг.рф:3200/api/product/${id}`);
+    const response = await fetch(`https://буккросинг.рф:3200/api/product/${id}`);
     const data = await response.json();
 
     return data;

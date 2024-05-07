@@ -3,7 +3,7 @@ import styles from './Header.module.scss';
 import Logo from "../logo/Logo"
 import Navigation from '../nav/Navigation';
 import Socials from '../socials/Socials';
-import BurgerMenu from '../burger/BurgerMenu';
+import BurgerMenu from '../../app/_burger/BurgerMenu';
 
 type Props = {
   bright?: boolean

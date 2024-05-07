@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './MobileNav.module.scss';
 
 import Link from "next/link";
@@ -7,9 +9,10 @@ import Facebook from '/public/svg/twitter-white.svg';
 import Instagramm from '/public/svg/inst-white.svg';
 import Youtube from '/public/svg/youtube-white.svg';
 import { IMobileNavImages, MobileNavProps } from '@/interfaces/interfaces';
+import { useState } from 'react';
 
 
-export default function MobileNav({ openMenu }: MobileNavProps) {
+export default function MobileNav({ openMenu, setOpenMenu }: MobileNavProps) {
 
   const images: IMobileNavImages = {
     facebook: Facebook,

@@ -38,6 +38,24 @@ export default async function Home() {
             </div>
           </div>
         </div>
+        <Image
+          width={400}
+          height={700}
+          style={{ height: 'auto' }}
+          className={styles.girlLeft}
+          src={'/png/hero-girl-left.png'}
+          alt='x-sales model'
+          priority
+        />
+        <Image
+          height={700}
+          width={400}
+          style={{ height: 'auto' }}
+          className={styles.girlRight}
+          src={'/png/hero-girl-right.png'}
+          alt='x-sales model'
+          priority
+        />
       </section>
 
       <div className={styles.white_box}>

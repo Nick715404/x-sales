@@ -20,6 +20,7 @@
     background: transparent;
     height: auto;
     margin-bottom: 100px;
+    border-radius: 0;
   }
 
   @media (max-width: 768px) {
@@ -61,8 +62,10 @@
     }
 
     @media (max-width: 786px) {
-      height: 210px;
+      height: unset;
+      aspect-ratio: 1.5 / 1;
       margin-top: -60px;
+      border-radius: 15px;
     }
 
     &:nth-child(2) {

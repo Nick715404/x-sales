@@ -48,75 +48,64 @@
     pointer-events: none;
   }
 
-  &::after {
-    content: '';
+  .girlRight,
+  .girlLeft {
     position: absolute;
-    bottom: 30px;
-    left: -60px;
-    width: 50%;
-    height: calc((1vw + 1vh) * 33);
-    background-image: url('/png/hero-girl-left.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    max-height: 1018px;
-    max-width: 914px;
+    bottom: 0;
+    width: auto;
+    height: 100%;
+  }
 
-    @media (max-width: 1690px) {
-      height: calc((1vw + 1vh) * 32);
-      left: -45px;
-    }
+  .girlLeft {
+    width: 43%;
+    z-index: 2;
 
     @media (max-width: 1024px) {
-      left: 0;
+      width: 70%;
+      left: -120px;
     }
 
-    @media (max-width: 786px) {
-      background-size: cover;
+    @media (max-width: 768px) {
+      width: 130%;
+      left: -160px;
+      bottom: -115px;
     }
 
-    @media (max-width: 490px) {
-      left: -60px;
-      height: calc((1vw + 1vh) * 42);
-      width: 73%;
-      left: -20px;
-      bottom: -30px;
+    @media (max-width: 390px) {
+      width: 100%;
+      left: -100px;
+      bottom: -115px;
     }
 
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: -107px;
-    right: 38px;
-    width: 50%;
-    height: calc((1vw + 1vh) * 38);
-    background-image: url('/png/hero-girl-right.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    max-width: 920px;
+  .girlRight {
+    right: 0;
+    bottom: -130px;
+    width: 52%;
+    z-index: 1;
 
-    @media (max-width: 1480px) {
-      max-width: 715px;
-    }
-
-    @media (max-width: 786px) {
-      width: 498px;
-      height: calc((1vw + 1vh) * 39);
-      right: -30px;
-    }
-
-    @media (max-width: 490px) {
+    @media (max-width: 1024px) {
       width: 90%;
-      height: calc((1vw + 1vh)* 45);
-      bottom: -20px;
+      right: -120px;
+    }
+
+    @media (max-width: 768px) {
+      width: 140%;
+      right: -100px;
+      bottom: -130px;
+    }
+
+    @media (max-width: 390px) {
+      width: 110%;
+      right: -80px;
+      bottom: -130px;
     }
 
   }
 
   &__wrapper {
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -124,14 +113,15 @@
     justify-content: center;
     text-align: center;
     padding-bottom: 5.8%;
+    z-index: 3;
 
     @media (max-width: 1024px) {
       justify-content: flex-start;
-      margin-top: 118px;
+      margin-top: 35%;
     }
 
     @media (max-width: 490px) {
-      height: 80%;
+      height: 70%;
       justify-content: space-between;
     }
 

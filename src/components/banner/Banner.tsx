@@ -34,26 +34,33 @@ export default function Banner() {
 
   return (
     <div className={styles.banner}>
-      {brands.map(({ id, name, description }: IBrand) => (
-        <div
-          key={id}
-          id={id}
-          onMouseEnter={() => handleMouseEnter(id as BrandKeys)}
-          onMouseLeave={handleMouseLeave}
-          className={styles.column}>
-          <h2 className={styles.title}>{name}</h2>
-          <p className={styles.text}>{description}</p>
-          <div className={styles.btn_box}>
-            <Button style='default' text='Подробнее о бренде' href='#' />
+      {
+        brands.map(({ id, name, description }: IBrand) => (
+          <div
+            key={id}
+            id={id}
+            onMouseEnter={() => handleMouseEnter(id as BrandKeys)}
+            onMouseLeave={handleMouseLeave}
+            className={styles.column}>
+            <h2 className={styles.title}>{name}</h2>
+            <p className={styles.text}>{description}</p>
+            <div className={styles.btn_box}>
+              <Button style='default' text='Подробнее о бренде' href='#' />
+            </div>
+            <Link className={styles.link} href='#'></Link>
           </div>
-          <Link className={styles.link} href='#'></Link>
-        </div>
-      ))}
-      {hoveredBrand && (
-        <Image fill src={brandImages[hoveredBrand]}
-          alt={hoveredBrand} priority
-        />
-      )}
+        ))
+      }
+      {
+        hoveredBrand && (
+          <Image
+            fill
+            src={brandImages[hoveredBrand]}
+            alt={hoveredBrand}
+            priority
+          />
+        )
+      }
     </div>
   );
 }
