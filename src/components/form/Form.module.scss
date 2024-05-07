@@ -252,6 +252,11 @@
   .successTitle {
     line-height: 1.1 !important;
     font-size: clamp(24px, 4vw, 60px) !important;
+
+    @media (max-width: 1024px) {
+      font-size: clamp(24px, 8vw, 60px) !important;
+    }
+
   }
 
 }
