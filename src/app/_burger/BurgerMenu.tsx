@@ -2,7 +2,7 @@
 
 import styles from './BurgerMenu.module.scss';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { navLinks } from '@/constans/constants';
 import { usePathname } from 'next/navigation';
 import { ISocialsImages } from '@/interfaces/interfaces';
@@ -12,8 +12,7 @@ import Image from 'next/image';
 import Facebook from '/public/svg/facebook-black.svg';
 import Instagramm from '/public/svg/inst.svg';
 import Youtube from '/public/svg/youtube.svg';
-import Logo from '../../components/logo/Logo';
-import { useRouter } from 'next/router';
+import logoImg from '/public/svg/30XSales.svg'
 
 export default function BurgerMenu() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
@@ -53,7 +52,14 @@ export default function BurgerMenu() {
           <span className={styles.burger__line}></span>
         </div>
         <div className={styles.logo}>
-          <Logo mode />
+          <Link className={styles.link} href={'/'}>
+            <Image
+              className={styles.img}
+              src={logoImg}
+              alt={'Логотип сайта 30Xsales'}
+              priority
+            />
+          </Link>
         </div>
         <ul className={styles.list}>
           {

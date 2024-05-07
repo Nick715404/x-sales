@@ -45,7 +45,7 @@
     width: 100%;
     height: 100dvh;
     background-color: #ECECEB;
-    transition: all .4s ease-in-out;
+    transition: all .4s ease;
 
     .wrapper {
       height: 100%;
@@ -214,7 +214,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: all .7s ease-in-out;
+  transition: all .4s ease-in-out;
 
   .list {
     display: flex;
